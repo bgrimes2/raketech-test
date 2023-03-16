@@ -64,7 +64,11 @@ function raketech_reviews_shortcode() {
         $output .= '</a>';
         $output .= '</div>';
         $output .= '<div class="raketech-reviews-rating">';
-        $output .= '<span class = "flow-center">' . generate_rating_stars($review['info']['rating']) . '</span>';
+        $output .= '<span class="flow-center">' . generate_rating_stars($review['info']['rating']) . '</span>';
+        // if "bonus" content exists, display it here
+        if (isset($review['info']['bonus'])) {
+            $output .= '<div class="raketech-reviews-bonus">' . $review['info']['bonus'] . '</div>';
+        }
         $output .= '</div>';
         $output .= '<div class="raketech-reviews-content">';
         $output .= '<div class="raketech-reviews-features">';
@@ -79,7 +83,11 @@ function raketech_reviews_shortcode() {
         $output .= '</div>';
         $output .= '<div class="raketech-reviews-button-wrapper flow-center">';
         $output .= '<a href="' . $review['play_url'] . '" class="raketech-reviews-play-now-button">PLAY NOW</a>';
+        if (isset($review['terms_and_conditions'])) {
+            $output .= '<p>' . $review['terms_and_conditions'] . '</p>';
+        }
         $output .= '</div>';
+        
         $output .= '</div>';
     }
     $output .= '</div>';
