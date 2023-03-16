@@ -6,6 +6,10 @@
     --dark-color: black;
   }
 
+  p {
+    font-size: small;
+}
+
   .flow-center {
     display: flex;
     align-items: center;
@@ -14,6 +18,10 @@
 
   .raketech-reviews-wrapper{
     max-width: 1200px !important; /*override default wp 2023 theme settings */
+  }
+
+  .raketech-reviews-wrapper .raketech-reviews-item:nth-child(odd) {
+    background-color: var(--secondary-color);
   }
   
   .raketech-reviews-labels {
@@ -40,7 +48,6 @@
     align-items: center;
     gap: 1rem;
     margin: 0 auto;
-    max-width: 100%;
     padding: 1rem;
   }
 
@@ -54,3 +61,88 @@
     width: 100%;
     text-align: center;
 }
+
+.raketech-reviews-logo img {
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.raketech-reviews-logo .review-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    color: var(--light-color);
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.raketech-reviews-logo:hover img {
+    filter: brightness(0.7) saturate(0.1) contrast(1.2);
+}
+
+.raketech-reviews-logo:hover .review-text {
+    opacity: 1;
+}
+
+/* ratings */
+.raketech-reviews-rating span {
+    font-size: 1rem;
+    color: var(--primary-color); /* set the color of the stars */
+  }
+  
+  .raketech-reviews-rating span .fa-star {
+    font-size: inherit;
+  }
+  
+  .raketech-reviews-rating span .fa-star-o {
+    font-size: inherit;
+    color: var(--light-color); /* set the color of the empty stars */
+  }
+  
+  .raketech-reviews-rating span .fa-star-half-o {
+    font-size: inherit;
+    color: var(--primary-color); /* set the color of the half-filled stars */
+  }
+
+  .raketech-reviews-bonus{
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+
+  
+/*features */
+.raketech-reviews-features {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 1rem 0;
+  }
+  
+  .raketech-reviews-features li {
+    margin-bottom: 0.5rem;
+  }
+  
+  /*button */
+  .raketech-reviews-button-wrapper{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .raketech-reviews-play-now-button {
+    background-color: var(--primary-color);
+    border-radius: 2rem;
+    color: var(--light-color) !important; /*override default wp 2023 theme settings */
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .raketech-reviews-play-now-button:hover{
+    background-color: var(--primary-alt) !important;
+  }
