@@ -45,17 +45,17 @@ function raketech_reviews_shortcode() {
     usort($reviews, function ($a, $b) {
         return $a['position'] <=> $b['position'];
     });
-
     $output = '<div class="raketech-reviews-wrapper">';
     $output .= '<div class="raketech-reviews-labels">';
-    $output .= '<span class = "flow-center">Casino</span>';
-    $output .= '<span class = "flow-center">Bonus</span>';
-    $output .= '<span class = "flow-center">Features</span>';
-    $output .= '<span class = "flow-center">Play</span>';
+    $output .= '<span class="">Casino</span>';
+    $output .= '<span class="">Bonus</span>';
+    $output .= '<span class="">Features</span>';
+    $output .= '<span class="">Play</span>';
     $output .= '</div>';
     foreach ($reviews as $review) {
         $output .= '<div class="raketech-reviews-item">';
         $output .= '<div class="raketech-reviews-logo">';
+        $output .= '<span class="show-mobile">Casino</span>';
         $output .= '<a href="' . home_url('/' . $review['brand_id']) . '">';
         $output .= '<div class="logo-wrapper">';
         $output .= '<img src="' . $review['logo'] . '" alt="Logo">';
@@ -64,13 +64,14 @@ function raketech_reviews_shortcode() {
         $output .= '</a>';
         $output .= '</div>';
         $output .= '<div class="raketech-reviews-rating">';
-        $output .= '<span class="flow-center">' . generate_rating_stars($review['info']['rating']) . '</span>';
-        // if "bonus" content exists, display it here
+        $output .= '<span class="show-mobile">Bonus</span>';
+        $output .= '<span class>' . generate_rating_stars($review['info']['rating']) . '</span>';
         if (isset($review['info']['bonus'])) {
             $output .= '<div class="raketech-reviews-bonus">' . $review['info']['bonus'] . '</div>';
         }
         $output .= '</div>';
         $output .= '<div class="raketech-reviews-content">';
+        $output .= '<span class="show-mobile">Features</span>';
         $output .= '<div class="raketech-reviews-features">';
         $output .= '<ul>';
         foreach ($review['info']['features'] as $feature) {
@@ -81,17 +82,18 @@ function raketech_reviews_shortcode() {
         $output .= '<div class="raketech-reviews-button">';
         $output .= '</div>';
         $output .= '</div>';
-        $output .= '<div class="raketech-reviews-button-wrapper flow-center">';
+        $output .= '<div class="raketech-reviews-button-wrapper">';
+        $output .= '<span class="show-mobile">Play</span>';
         $output .= '<a href="' . $review['play_url'] . '" class="raketech-reviews-play-now-button">PLAY NOW</a>';
         if (isset($review['terms_and_conditions'])) {
             $output .= '<p>' . $review['terms_and_conditions'] . '</p>';
         }
         $output .= '</div>';
-        
         $output .= '</div>';
     }
     $output .= '</div>';
     return $output;
+
     
 }
 

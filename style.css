@@ -8,48 +8,92 @@
 
   p {
     font-size: small;
+    text-align: center;
 }
 
-  .flow-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.show-mobile {
+    display: block;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: var(--primary-alt);
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    margin-bottom: 0.6rem;
+    width: 100%;
+    color: var(--light-color) !important;
+  }
+  
+
+@media only screen and (min-width: 769px) {
+    .show-mobile {
+        display: none !important;
+    }
 }
 
-  .raketech-reviews-wrapper{
-    max-width: 1200px !important; /*override default wp 2023 theme settings */
+
+.raketech-reviews-wrapper {
+    max-width: 1200px !important;
+    margin: 0 auto;
   }
 
   .raketech-reviews-wrapper .raketech-reviews-item:nth-child(odd) {
     background-color: var(--secondary-color);
   }
-  
+
+  /* labels grid */
   .raketech-reviews-labels {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    align-content: space-around;
+    align-content: center;
+    justify-content: center;
     gap: 1rem;
     margin: 0 auto;
-    max-width: 100%;
+    max-width: 100% !important;
     padding: 1rem;
     background-color: var(--primary-color);
+  }
+
+  @media only screen and (max-width: 768px) {
+    .raketech-reviews-labels {
+        display: none !important;
+    }
+}
+
+  @media only screen and (min-width: 992px) {
+    .raketech-reviews-labels{
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 
   .raketech-reviews-labels span {
     color: var(--light-color);
     font-weight: bold;
     text-transform: uppercase;
+    text-align: center;
   }
 
  /* main grid */
  .raketech-reviews-item {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    align-items: center;
     gap: 1rem;
     margin: 0 auto;
     padding: 1rem;
+    justify-content: center;
   }
+  @media only screen and (min-width: 992px) {
+    .raketech-reviews-item {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .raketech-reviews-item > .raketech-reviews-rating,
+  .raketech-reviews-item > .raketech-reviews-button-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
 
   .raketech-reviews-item:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -64,9 +108,10 @@
 
 .raketech-reviews-logo img {
     width: 100%;
-    height: 100%;
+    height: auto;
     transition: opacity 0.3s ease-in-out;
 }
+
 
 .raketech-reviews-logo .review-text {
     position: absolute;
@@ -130,6 +175,7 @@
   .raketech-reviews-button-wrapper{
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 
   .raketech-reviews-play-now-button {
